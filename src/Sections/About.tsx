@@ -3,12 +3,12 @@ import Image from "../Components/Image";
 
 function About() {
   return (
-    <section className="flex flex-row w-3/4 gap-50 h-screen justify-center items-center p-10">
+    <section className="flex flex-row lg:w-3/4 gap-50 h-screen justify-center items-center">
       <div className="size-100">
           <Image source={myFace} />
       </div>
       <div className="flex flex-col gap-10 w-1/2">
-        <h2 className="text-7xl font-bold">THE PHILOSOPHY</h2>
+        <h2 className="text-6xl font-bold">THE PHILOSOPHY</h2>
         <p className="flex flex-col gap-5 text-xl">
           <span className="text-gray-300">
               I believe that great software is born from the intersection of
