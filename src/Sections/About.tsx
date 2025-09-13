@@ -1,9 +1,9 @@
-import { myFace } from "../assets";
+import { myFace } from "../assets/index";
 import Image from "../Components/Image";
 
 function About() {
   return (
-    <section className="flex flex-row lg:w-3/4 gap-50 h-screen justify-center items-center">
+    <section className="flex flex-row w-full min-h-screen gap-50 justify-center items-center">
       <div className="size-100">
           <Image source={myFace} />
       </div>
