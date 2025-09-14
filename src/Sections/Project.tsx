@@ -22,21 +22,21 @@ const Projects: ProjectsType[] = [
 
 function Project() {
   return (
-    <section className="flex flex-col w-full min-h-screen gap-10 justify-center">
-      <h2 className="text-6xl font-bold self-center">FEATURED WORKS</h2>
-      {Projects.map((item,index) => {
+    <section className="flex flex-col w-full lg:w-3/4 lg:mx-auto min-h-screen gap-16 justify-center px-6 py-12">
+      <h2 className="font-bold self-center text-center text-[clamp(2.5rem,1rem+6vw,3.75rem)]">FEATURED WORKS</h2>
+      {Projects.map((item, index) => {
         return (
           <div
             key={item.id}
-            className={`flex ${index%2==0? "flex-row-reverse":"flex-row"} justify-center items-center gap-15`}
+            className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"} justify-center items-center gap-8 lg:gap-12`}
           >
-            <div className="size-100 w-140">
+            <div className="w-full lg:w-1/2">
               <Image source={item.img} />
             </div>
-            <div className="flex flex-col gap-10 w-1/2">
-              <div className="flex flex-col gap-5">
-                <h3 className="text-4xl font-semibold">{item.name.toUpperCase()}</h3>
-                <p className="text-lg text-stone-300">{item.desc}</p>
+            <div className="flex flex-col gap-6 w-full lg:w-1/2">
+              <div className="flex flex-col gap-4">
+                <h3 className="font-semibold text-[clamp(1.875rem,1rem+4vw,2.25rem)]">{item.name.toUpperCase()}</h3>
+                <p className="text-base text-stone-300 md:text-lg">{item.desc}</p>
               </div>
               <div className="flex flex-col gap-2">
                 <span className="font-semibold text-stone-600">TECH STACK</span>
