@@ -34,7 +34,7 @@ function App() {
     <>
       {loadingComponent}
       <div className="bg-main text-white w-full overflow-x-hidden">
-        <Hero />
+        <Hero loading={isLoading}/>
         <About />
         <Project />
         <Tech />
