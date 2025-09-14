@@ -35,18 +35,20 @@ function Modal({ project, closeModal }: Props) {
           <h3 className="text-2xl md:text-3xl font-bold">{project.name}</h3>
           <button
             onClick={closeModal}
-            className="py-1 px-3 text-xl cursor-pointer rounded-full bg-stone-800"
+            className="py-1 px-3 text-xl cursor-pointer rounded-full bg-stone-800 lg:bg-transparent lg:hover:bg-stone-800"
           >
             X
           </button>
         </div>
         <Image source={project.img} brightnessFull={true} isCrop={true} />
-        <p className="text-sm lg:text-base">{project.desc}</p>
-        <span className="font-semibold text-white">TECH STACK</span>
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((item) => (
-            <Badge text={item} />
-          ))}
+        <p className="text-sm lg:text-base text-stone-300">{project.desc}</p>
+        <div className="flex flex-col gap-1">
+          <span className="font-semibold text-white">TECH STACK</span>
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((item) => (
+              <Badge text={item} />
+            ))}
+          </div>
         </div>
         <div className="flex flex-row gap-5">
           {project.livedemo ? (

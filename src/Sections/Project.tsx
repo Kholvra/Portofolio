@@ -95,8 +95,8 @@ function Project() {
                   {item.desc}
                 </p>
               </div>
-              <div className="flex flex-col gap-2">
-                <span className="font-semibold text-stone-600">TECH STACK</span>
+              <div className="flex flex-col gap-1">
+                <span className="font-semibold text-stone-400">TECH STACK</span>
                 <div className="flex flex-wrap gap-2">
                   {item.tech.map((tech) => {
                     return <Badge text={tech} />;
