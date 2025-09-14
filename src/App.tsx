@@ -11,14 +11,17 @@ import Footer from "./Components/Footer";
 
 function App() {
   const lenis = useSmoothScroll();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!sessionStorage.getItem("hasLoaded"));
   const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
+    if (!isLoading) return;
+
     const timer = setInterval(() => {
       setLoadingProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
+          sessionStorage.setItem("hasLoaded", "true");
           setTimeout(() => setIsLoading(false), 500);
           return 100;
         }
@@ -27,7 +30,7 @@ function App() {
     }, 50);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isLoading]);
 
   return (
     <LenisContext.Provider value={lenis}>
