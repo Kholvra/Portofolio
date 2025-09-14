@@ -1,7 +1,11 @@
 import Badge from "../Components/Badge";
 import Image from "../Components/Image";
 import { type ProjectsType } from "../Types";
-import { pomodoroTimer } from "../assets/index";
+import {
+  pomodoroTimer,
+  inventoryManagement,
+  aquaticToDoList,
+} from "../assets/index";
 import { motion } from "framer-motion";
 
 const Projects: ProjectsType[] = [
@@ -14,9 +18,17 @@ const Projects: ProjectsType[] = [
   },
   {
     id: 2,
-    name: "apalah",
-    desc: "apalagi",
-    tech: ["woi", "damn"],
+    name: "Inventory Management (WIP)",
+    desc: "A comprehensive Inventory Management System built with React and TypeScript. Designed with a user-friendly interface adapted from a Figma template, it aims to manage inventory, track sales, purchases, and other related data, featuring a dashboard, intuitive navigation, and search functionality.",
+    img: inventoryManagement,
+    tech: ["Vite", "React", "TypeScript", "TailwindCSS"],
+  },
+  {
+    id: 3,
+    name: "Aquatic To-Do List",
+    desc: "A simple, cheerful sea-themed to-do list application built with HTML, CSS, and Vanilla JavaScript. Designed to help you manage daily tasks with features like adding, deleting, and marking tasks as complete, local storage, and a motivational octopus.",
+    img: aquaticToDoList,
+    tech: ["HTML", "CSS", "JavaScript"],
   },
 ];
 
@@ -45,8 +57,9 @@ function Project() {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="w-full lg:w-1/2"
+              className="w-full lg:w-1/2 relative"
             >
+              <span className="z-30 text-9xl font-thin absolute left-0 top-0 -translate-x-1/5 text-stone-200 opacity-50">{(index+1).toString().padStart(2,"0")}</span>
               <Image source={item.img} />
             </motion.div>
             <div className="flex flex-col gap-6 w-full lg:w-1/2">

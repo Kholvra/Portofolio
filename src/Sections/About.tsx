@@ -5,7 +5,7 @@ function About() {
   return (
     <section className="flex flex-col lg:flex-row w-full min-h-screen gap-12 lg:gap-20 justify-center items-center px-6 py-12">
       <div className="w-2/3 max-w-xs lg:w-1/3 lg:max-w-sm">
-          <Image source={myFace} />
+          <Image source={myFace} grayscale={true} />
       </div>
       <div className="flex flex-col gap-8 w-full lg:w-1/2">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center lg:text-left">THE PHILOSOPHY</h2>

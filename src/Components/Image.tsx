@@ -1,9 +1,12 @@
 type Props={
     source?: string
+    grayscale?: boolean
 }
 
-function Image({source}:Props){
-    return <img src={source} alt="" className="size-full rounded-lg lg:grayscale lg:hover:grayscale-0 transition duration-300"/>
+
+function Image({source,grayscale}:Props){
+    const grayscaleOption = grayscale? "lg:grayscale lg:hover:grayscale-0" : "brightness-70 hover:brightness-100"
+    return <img src={source} alt="" className={`size-full rounded-lg ${grayscaleOption} transition duration-300`}/>
 }
 
 export default Image;
