@@ -6,15 +6,13 @@ import Contact from "./Sections/Contact";
 import useSmoothScroll from "./customHooks/useSmoothScroll";
 import Loading from "./Components/Loading";
 import { useState, useEffect } from "react";
+import { LenisContext } from "./lib/LenisContext";
+import Footer from "./Components/Footer";
 
 function App() {
-  useSmoothScroll();
+  const lenis = useSmoothScroll();
   const [isLoading, setIsLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
-  let loadingComponent;
-  if (isLoading) {
-    loadingComponent = <Loading loadingProgress={loadingProgress} />;
-  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,17 +28,19 @@ function App() {
 
     return () => clearInterval(timer);
   }, []);
+
   return (
-    <>
-      {loadingComponent}
+    <LenisContext.Provider value={lenis}>
+      {isLoading && <Loading loadingProgress={loadingProgress} />}
       <div className="bg-main text-white w-full overflow-x-hidden">
         <Hero loading={isLoading}/>
         <About />
         <Project />
         <Tech />
         <Contact />
+        <Footer />
       </div>
-    </>
+    </LenisContext.Provider>
   );
 }
 
