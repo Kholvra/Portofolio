@@ -2,7 +2,7 @@
   "name": "sabri-portofolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://kholvra.github.io/Portofolio",
+  "homepage": "https://kholvra.github.io/Portofolio/",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
