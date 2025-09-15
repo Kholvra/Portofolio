@@ -7,7 +7,7 @@ type Props = {
 function Hero({ loading }: Props) {
   if (!loading) {
     return (
-      <section className="flex flex-col w-full gap-5 justify-center items-center min-h-screen px-6 text-center">
+      <section className="flex flex-col w-full lg:gap-3 justify-center items-center min-h-screen px-6 text-center">
         <motion.h1
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -16,25 +16,26 @@ function Hero({ loading }: Props) {
         >
           SABRI SIRAJ KHOLBI
         </motion.h1>
-        <motion.span
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="font-medium text-[clamp(1.5rem,1rem+2vw,1.875rem)]"
-        >
-          Built with Code & Clarity.
-        </motion.span>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-          className="max-w-2xl mx-auto leading-relaxed text-base text-gray-500"
-        >
-          I'm a software engineer who transforms complex problems into elegant
-          digital solutions. Specializing in modern web technologies, I craft
-          applications that balance technical excellence with exceptional user
-          experiences.
-        </motion.p>
+        <div className="flex flex-col gap-3 lg:gap-1">
+          <motion.h2
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="font-medium text-[clamp(1.5rem,1rem+2vw,1.875rem)] text-stone-300"
+          >
+            <span className="block lg:inline">Software Engineer </span>
+            <span>Crafting Web Solutions.</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.4 }}
+            className="max-w-2xl mx-auto leading-relaxed text-base text-gray-500"
+          >
+            Built with Code & Clarity.
+          </motion.p>
+        </div>
+        <button className="rounded-lg bg-white text-black p-3 cursor-pointer text-lg m-5 font-medium">Let's Talk</button>
       </section>
     );
   }
