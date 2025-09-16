@@ -9,7 +9,7 @@ function About() {
       </div>
       <div className="flex flex-col gap-8 w-full lg:w-1/2">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center lg:text-left">
-          About Me.
+          ABOUT
         </h2>
         <p className="flex flex-col gap-5 text-base md:text-lg lg:text-xl text-center lg:text-left leading-relaxed text-gray-300">
           <span>

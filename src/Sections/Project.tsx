@@ -78,7 +78,7 @@ function Project() {
               className="w-full lg:w-1/2 relative group"
               onClick={() => openModal(item)}
             >
-              <span className="z-30 text-9xl font-thin absolute left-0 top-0 -translate-x-1/5 text-stone-200 opacity-50">
+              <span className="z-30 text-9xl font-thin absolute left-0 top-0 -translate-x-1/5 text-stone-200 opacity-50 select-none">
                 {(index + 1).toString().padStart(2, "0")}
               </span>
               <span className="z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-lg font-semibold mb-2 lg:opacity-0 lg:group-hover:opacity-100 transition duration-300">
@@ -95,8 +95,8 @@ function Project() {
                   {item.desc}
                 </p>
               </div>
-              <div className="flex flex-col gap-1">
-                <span className="font-semibold text-stone-400">TECH STACK</span>
+              <div className="flex flex-col gap-1 select-none">
+                <span className="text-sm font-medium text-stone-300">TECH STACK</span>
                 <div className="flex flex-wrap gap-2">
                   {item.tech.map((tech) => {
                     return <Badge text={tech} />;
