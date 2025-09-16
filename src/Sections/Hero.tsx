@@ -35,7 +35,7 @@ function Hero({ loading }: Props) {
             Built with Code & Clarity.
           </motion.p>
         </div>
-        <button className="rounded-lg bg-white text-black p-3 cursor-pointer text-lg m-5 font-medium">Let's Talk</button>
+        <button className="rounded-lg bg-white text-black p-3 cursor-pointer text-lg m-5 font-medium"><a href="#contact">Let's Talk</a></button>
       </section>
     );
   }

@@ -9,17 +9,19 @@ function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="font-bold text-[clamp(3rem,1rem+8vw,6rem)] leading-tight"
+          id="contact"
         >
           HAVE A PROJECT IN MIND?
         </motion.h2>
-        <motion.span
+        <motion.a
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[clamp(1.25rem,1rem+1vw,2.25rem)] break-all"
+          href="mailto:sabrisirajkholbiabby@gmail.com"
+          className="text-[clamp(1.25rem,1rem+1vw,2.25rem)] break-all hidden lg:block"
         >
           sabrisirajkholbiabby@gmail.com
-        </motion.span>
+        </motion.a>
       </div>
       <div className="flex flex-row gap-4 lg:gap-10 text-lg font-medium">
         <a href="https://linkedin.com/in/sabrisirajk" target="_blank">
@@ -27,6 +29,12 @@ function Contact() {
         </a>
         <a href="https://github.com/Kholvra" target="_blank">
           Github
+        </a>
+        <a
+          href="mailto:sabrisirajkholbiabby@gmail.com"
+          className="lg:hidden"
+        >
+          Email
         </a>
       </div>
     </section>
