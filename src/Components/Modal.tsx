@@ -2,9 +2,10 @@ import Badge from "./Badge";
 import Image from "./Image";
 import Button from "./button";
 import { type ProjectsType } from "../Types";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react"; // Add useRef
 import { LenisContext } from "../lib/LenisContext";
 import { motion } from "framer-motion";
+import Lenis from "lenis"; // Import Lenis
 
 type Props = {
   project: ProjectsType;
@@ -13,24 +14,49 @@ type Props = {
 
 function Modal({ project, closeModal }: Props) {
   const lenis = useContext(LenisContext);
-
+  const modalContentRef = useRef(null);
+  
   useEffect(() => {
     lenis?.stop();
 
+    let modalLenis: Lenis | null = null;
+
+    if (modalContentRef.current) {
+      modalLenis = new Lenis({
+        wrapper: modalContentRef.current,
+        lerp: 0.1,
+        smoothWheel: true,
+      });
+
+      function raf(time: number) {
+        modalLenis?.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    }
+
     return () => {
+      modalLenis?.destroy();
       lenis?.start();
     };
   }, [lenis]);
 
   return (
     <motion.div
-    initial={{ y: 100, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    exit={{ y: 100, opacity: 0 }}
-    className="flex items-center fixed inset-0 z-80"
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 100, opacity: 0 }}
+      className="flex items-center fixed inset-0 z-80"
     >
-    <span className="fixed inset-0 z-80 bg-black opacity-50"></span>
-      <div className="flex flex-col h-max-screen gap-5 z-90 w-full lg:w-2/5 mx-auto p-10 rounded-xl bg-main">
+      <span
+        onClick={closeModal}
+        className="fixed inset-0 z-80 bg-black opacity-50"
+      ></span>
+      <div
+        ref={modalContentRef}
+        className="flex flex-col max-h-screen gap-5 z-90 w-full lg:w-2/5 mx-auto p-5 md:p-10 rounded-xl bg-main overflow-auto"
+      >
         <div className="flex flex-row justify-between items-center gap-3">
           <h3 className="text-2xl md:text-3xl font-bold">{project.name}</h3>
           <button
@@ -43,10 +69,12 @@ function Modal({ project, closeModal }: Props) {
         <Image source={project.img} brightnessFull={true} isCrop={true} />
         <p className="text-sm lg:text-base text-stone-300">{project.desc}</p>
         <div className="flex flex-col gap-1 select-none">
-          <span className="text-sm font-medium text-stone-300">TECH STACK</span>
+          <span className="text-sm font-medium text-stone-300">
+            TECH STACK
+          </span>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((item) => (
-              <Badge text={item} />
+              <Badge key={item} text={item} />
             ))}
           </div>
         </div>
