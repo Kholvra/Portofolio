@@ -2,10 +2,9 @@ import Badge from "./Badge";
 import Image from "./Image";
 import Button from "./button";
 import { type ProjectsType } from "../Types";
-import { useContext, useEffect, useRef } from "react"; // Add useRef
+import { useContext, useEffect} from "react"; 
 import { LenisContext } from "../lib/LenisContext";
 import { motion } from "framer-motion";
-import Lenis from "lenis"; // Import Lenis
 
 type Props = {
   project: ProjectsType;
@@ -14,31 +13,14 @@ type Props = {
 
 function Modal({ project, closeModal }: Props) {
   const lenis = useContext(LenisContext);
-  const modalContentRef = useRef(null);
   
   useEffect(() => {
     lenis?.stop();
-
-    let modalLenis: Lenis | null = null;
-
-    if (modalContentRef.current) {
-      modalLenis = new Lenis({
-        wrapper: modalContentRef.current,
-        lerp: 0.1,
-        smoothWheel: true,
-      });
-
-      function raf(time: number) {
-        modalLenis?.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-    }
+    document.body.style.overflow = "hidden";
 
     return () => {
-      modalLenis?.destroy();
       lenis?.start();
+      document.body.style.overflow = "";
     };
   }, [lenis]);
 
@@ -47,14 +29,13 @@ function Modal({ project, closeModal }: Props) {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 100, opacity: 0 }}
-      className="flex items-center fixed inset-0 z-80"
+      className="flex items-center fixed inset-0 z-80" data-lenis-prevent
     >
       <span
         onClick={closeModal}
         className="fixed inset-0 z-80 bg-black opacity-50"
       ></span>
       <div
-        ref={modalContentRef}
         className="flex flex-col max-h-screen gap-5 z-90 w-full lg:w-2/5 mx-auto p-5 md:p-10 rounded-xl bg-main overflow-auto"
       >
         <div className="flex flex-row justify-between items-center gap-3">
