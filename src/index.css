@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -11,14 +10,19 @@ body {
   background-color: #121212;
 }
 
-.text-black{
+.text-black {
   color: #121212;
 }
 
 @layer components {
-  .badge-outline {
-    @apply inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-base font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden text-background [a&]:hover:bg-accent [a&]:hover:text-accent-foreground;
+  .hover-underlined::after {
+    @apply content-[""] absolute bottom-0 left-0 h-0.5 w-0 bg-white transition-all duration-300;
   }
+  .hover-underlined:hover::after {
+    @apply w-full;
+  }
+
+
 }
 
 @theme inline {

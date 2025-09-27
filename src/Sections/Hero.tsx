@@ -29,13 +29,21 @@ function Hero({ loading }: Props) {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.4 }}
+            transition={{ delay: 1 }}
             className="max-w-2xl mx-auto leading-relaxed text-base text-gray-500"
           >
             Built with Code & Clarity.
           </motion.p>
         </div>
-        <button className="rounded-lg bg-white text-black p-3 cursor-pointer text-lg m-5 font-medium"><a href="#contact">Let's Talk</a></button>
+        <motion.a
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          href="#contact"
+          transition={{ delay: 1.4 }}
+          className="rounded-lg bg-white text-black p-3 cursor-pointer text-lg m-5 font-medium"
+        >
+          Let's Talk
+        </motion.a>
       </section>
     );
   }
