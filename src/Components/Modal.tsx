@@ -15,11 +15,9 @@ function Modal({ project, closeModal }: Props) {
   const lenis = useContext(LenisContext);
   
   useEffect(() => {
-    lenis?.stop();
     document.body.style.overflow = "hidden";
 
     return () => {
-      lenis?.start();
       document.body.style.overflow = "";
     };
   }, [lenis]);
