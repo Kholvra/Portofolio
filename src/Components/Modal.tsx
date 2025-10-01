@@ -1,6 +1,6 @@
 import Badge from "./Badge";
 import Image from "./Image";
-import Button from "./button";
+import Button from "./Button";
 import { type ProjectsType } from "../Types";
 import { useContext, useEffect} from "react"; 
 import { LenisContext } from "../lib/LenisContext";
@@ -60,11 +60,11 @@ function Modal({ project, closeModal }: Props) {
         <div className="flex flex-row gap-5">
           {project.livedemo ? (
             <>
-              <Button text="Live Demo" link={project.livedemo} />
-              <Button text="GitHub" link={project.github} />
+              <Button link={project.livedemo} color="white">Live Demo</Button>
+              <Button link={project.github} color="black">Github</Button>
             </>
           ) : (
-            <Button text="GitHub" link={project.github} />
+            <Button link={project.github} color="black">Github</Button>
           )}
         </div>
       </div>
