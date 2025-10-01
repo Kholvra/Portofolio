@@ -3,7 +3,7 @@ import type React from "react";
 type Props = {
   link?: string;
   children: React.ReactNode
-  color: "black"|"white"
+  color?: "black"|"white"
 };
 
 function Button({ link,children,color }: Props) {
@@ -12,16 +12,16 @@ function Button({ link,children,color }: Props) {
 
   switch (color) {
     case "black":
-      colorScheme = "bg-black text-white hover:bg-stone-800";
+      colorScheme = "bg-black text-white hover:bg-stone-800 border-stone-300/50";
       break;
     case "white":
-      colorScheme = "bg-white text-black hover:bg-stone-200";
+      colorScheme = "bg-white text-black hover:bg-stone-200 border-white";
       break;
     default:
-      colorScheme = "bg-black text-white hover:bg-stone-800";
+      colorScheme = "bg-black text-white hover:bg-stone-800 border-stone-300/50";
   }
 
-  const styleVariant = `rounded-lg border p-3 px-6 text-sm cursor-pointer border-stone-300/50 ${colorScheme}`;
+  const styleVariant = `rounded-lg border p-3 px-6 text-sm cursor-pointer ${colorScheme}`;
   if (link) {
     variant = (
       <a
