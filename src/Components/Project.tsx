@@ -1,6 +1,6 @@
-import Modal from "../Components/Modal";
-import Badge from "../Components/Badge";
-import Image from "../Components/Image";
+import Modal from "./Modal";
+import Badge from "./Badge";
+import Image from "./Image";
 import { type ProjectsType } from "../Types";
 import {
   pomodoroTimer,

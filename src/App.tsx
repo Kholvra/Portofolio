@@ -1,8 +1,8 @@
-import Hero from "./Sections/Hero";
-import About from "./Sections/About";
-import Project from "./Sections/Project";
-import Tech from "./Sections/Tech";
-import Contact from "./Sections/Contact";
+import Hero from "./Components/Hero";
+import About from "./Components/About";
+import Project from "./Components/Project";
+import Tech from "./Components/Tech";
+import Contact from "./Components/Contact";
 import useSmoothScroll from "./customHooks/useSmoothScroll";
 import Loading from "./Components/Loading";
 import { useState, useEffect } from "react";

@@ -1,5 +1,5 @@
 import { myFace } from "../assets/index";
-import Image from "../Components/Image";
+import Image from "./Image";
 
 function About() {
   return (
