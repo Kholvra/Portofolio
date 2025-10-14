@@ -9,6 +9,8 @@ import {
 } from "../assets/index";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Button from "./Button";
+import {Link} from "@tanstack/react-router"
 
 const Projects: ProjectsType[] = [
   {
@@ -96,7 +98,9 @@ function Project() {
                 </p>
               </div>
               <div className="flex flex-col gap-1 select-none">
-                <span className="text-sm font-medium text-stone-300">TECH STACK</span>
+                <span className="text-sm font-medium text-stone-300">
+                  TECH STACK
+                </span>
                 <div className="flex flex-wrap gap-2">
                   {item.tech.map((tech) => {
                     return <Badge text={tech} />;
@@ -107,6 +111,8 @@ function Project() {
           </motion.div>
         );
       })}
+      <Link to={'/project'}><Button>More Works</Button></Link>
+
       <AnimatePresence>
         {selectedProject && (
           <Modal project={selectedProject} closeModal={closeModal} />
